@@ -30,9 +30,9 @@ docker compose version
 ```bash
 git clone git@github.com:vasilekx/news_service.git
 ```
-Перейти в папку infra 
+Перейти в папку проекта news_service
 ```bash
-cd infra
+cd news_service
 ```
 Создать в директории файл .env со следующими параметрами:
 ```python
