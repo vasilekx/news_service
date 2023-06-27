@@ -9,7 +9,6 @@ from rest_framework.response import Response
 def delete_object(model: ModelBase,
                   fields: dict,
                   exist: bool,
-                  message: str,
                   errors_message: str) -> Response:
     if not exist:
         return Response(
@@ -19,9 +18,4 @@ def delete_object(model: ModelBase,
             status=status.HTTP_400_BAD_REQUEST
         )
     get_object_or_404(model, **fields).delete()
-    return Response(
-        {
-            'detail': message
-        },
-        status=status.HTTP_204_NO_CONTENT
-    )
+    return Response(status=status.HTTP_204_NO_CONTENT)

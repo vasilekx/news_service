@@ -41,7 +41,6 @@ class NewsViewSet(viewsets.ModelViewSet):
                 model=Like,
                 fields=fields,
                 exist=if_already_exists,
-                message=_('Лайк удален.'),
                 errors_message=_('Вы не лайкали эту новость.'),
             )
         if if_already_exists:
