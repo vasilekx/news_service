@@ -9,32 +9,24 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView
 )
 
-# from .views import PostViewSet, GroupViewSet, CommentViewSet, FollowViewSet
+from .views import NewsViewSet, CommentViewSet
 
 
 app_name = 'api'
 
-# router_v1 = routers.DefaultRouter()
-# router_v1.register(r'users', UserViewSet, basename='user')
-# router_v1.register(r'posts', PostViewSet, basename='posts')
-# router_v1.register(r'groups', GroupViewSet, basename='groups')
-# router_v1.register(
-#     r'posts/(?P<post_id>\d+)/comments',
-#     CommentViewSet,
-#     basename='comment'
-# )
-# router_v1.register(r'follow', FollowViewSet, basename='follow')
 
+router_v1 = routers.DefaultRouter()
+router_v1.register(r'news', NewsViewSet, basename='news')
+router_v1.register(
+    r'news/(?P<news_id>\d+)/comments',
+    CommentViewSet,
+    basename='comment'
+)
 
-# urlpatterns = [
-#     path('v1/', include('djoser.urls.jwt')),
-#     path('v1/', include(router_v1.urls)),
-# ]
 
 urlpatterns = [
-    # path('v1/', include(router_v1.urls)),
-    # path('v1/auth/', include(auth_urlpatterns)),
-    path('v1/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('v1/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('v1/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('v1/', include(router_v1.urls)),
+    path('v1/auth/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('v1/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('v1/auth/verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]

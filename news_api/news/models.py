@@ -1,3 +1,5 @@
+# news/models.py
+
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -89,6 +91,14 @@ class Like(models.Model):
         help_text=_('Пользователь, который лайкнул'),
         blank=True,
         null=True
+    )
+    created = models.DateTimeField(
+        _('Дата создания'),
+        auto_now_add=True,
+        blank=True,
+        null=True,
+        help_text=_('Дата создания будет автоматически установлена '
+                    'в текущую дату при создании')
     )
 
     class Meta:
