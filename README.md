@@ -1,4 +1,4 @@
-# news_service
+# API NEWS Service
 Тестовое задание на должность python backend developer. Сервер авторизации и новостей с комментариями и лайками на Django с использованием Django REST framework
 
 
@@ -48,7 +48,7 @@ HOST_NAME=localhost # Имена сервера для NGINX
 ```
 Создать и запустить контейнеры: 
 ```bash
-docker-compose up --build -d
+docker compose up --build -d
 ```
 
 [***Обзор команд*** ](https://docs.docker.com/compose/reference/)*для работы с docker-compose.*
