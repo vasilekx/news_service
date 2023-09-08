@@ -50,15 +50,14 @@ class NewsViewSet(viewsets.ModelViewSet):
                 },
                 status=status.HTTP_400_BAD_REQUEST
             )
-        else:
-            like = Like(**fields)
-            like.save()
-            return Response(
-                {
-                    'detail': _('Новость лайкнута.')
-                },
-                status=status.HTTP_201_CREATED
-            )
+        like = Like(**fields)
+        like.save()
+        return Response(
+            {
+                'detail': _('Новость лайкнута.')
+            },
+            status=status.HTTP_201_CREATED
+        )
 
 
 class CommentViewSet(viewsets.ModelViewSet):
