@@ -30,8 +30,7 @@ class NewsSerializer(serializers.ModelSerializer):
 
     def get_comments(self, obj):
         comments = obj.comments.order_by('-created')[:10]
-        comment_data = CommentSerializer(comments, many=True).data
-        return comment_data
+        return CommentSerializer(comments, many=True).data
 
     def get_liked(self, obj):
         request = self.context.get('request')
